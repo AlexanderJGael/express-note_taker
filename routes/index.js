@@ -1,14 +1,15 @@
-const api = require('express').Router();
+const router = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
 const { readAndAppend, readFromFile } = require('../helpers/fsUtils');
+const { database } = require('../db/db.json');
 
-// GET Route for retrieving all the feedback
-api.get('/notes', (req, res) =>
+// GET Route for retrieving all the notes
+router.get('/notes', (req, res) =>
   readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)))
 );
 
-// POST Route for submitting feedback
-api.post('/notes', (req, res) => {
+// POST Route for submitting a new note
+router.post('/notes', (req, res) => {
   // Destructuring assignment for the items in req.body
   console.log(req.body);
   const { title, text } = req.body;
@@ -35,4 +36,13 @@ api.post('/notes', (req, res) => {
   }
 });
 
-module.exports = api;
+router.get('/notes/:id', (req, res) => {
+  const noteId = req.params.id;
+  readFromFile(database).then((data) => {
+    const notes = JSON.parse(data);
+    const result = notes.filter((note) => note.note_id === noteId);
+    res.json(result);
+  });
+})
+
+module.exports = router;

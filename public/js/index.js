@@ -59,6 +59,14 @@ const deleteNote = (id) =>
     headers: {
       'Content-Type': 'application/json'
     }
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      getAndRenderNotes();
+    })
+    .catch((err) => {
+      console.error('Error: ', err)
+    })
   });
 
 const renderActiveNote = () => {
