@@ -1,8 +1,10 @@
 # Note Taker
 
 ## Description
-
 A simple note taking app built with Node.js, Express, and Bootstrap.
+
+## App Demo
+![Image](./assets/app_demo.jpeg)
 
 ## Table of Contents
 - [Features](#features)

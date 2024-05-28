@@ -35,7 +35,7 @@ router.post('/notes', (req, res) => {
     res.json('Error in posting note');
   }
 });
-
+/* 
 router.delete('/notes/:id', (req, res) => {
   const noteId = req.params.id;
   readFromFile(database).then((data) => {
@@ -47,7 +47,7 @@ router.delete('/notes/:id', (req, res) => {
   .catch((err) => {
     console.log('Error: ', err);
   })
-  })
+  }) */
 
 router.get('/notes/:id', (req, res) => {
   const noteId = req.params.id;
