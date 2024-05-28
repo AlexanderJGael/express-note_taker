@@ -2,6 +2,7 @@
 
 ## Description
 A simple note taking app built with Node.js, Express, and Bootstrap.
+View deployed app [here](https://express-note-taker-ag-4434075321af.herokuapp.com/)
 
 ## App Demo
 ![Image](./assets/app_demo.jpeg)
